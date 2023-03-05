@@ -1,6 +1,6 @@
 body{
     font-family: sans-serif;
-    background:rgba(0,0,0,0.25)url("assets/img/about.jpg");
+    background:url("/assets/img/test.jpg");
     background-repeat: no-repeat;
     overflow: hidden;
     background-size: cover;
@@ -14,22 +14,8 @@ body{
     padding-left: 20px;
     padding-top: 10px;
 }
-.container{
-    width:400px;
-    margin: 10% auto;
-    border-radius:30px;
-    background-color:rgba(0,0,0,0.6) ;
-    box-shadow: 0 0 30px #333;
 
-}
-.container1{
-    width:400px;
-    margin: 4% auto;
-    border-radius:30px;
-    background-color:rgba(0,0,0,0.6) ;
-    box-shadow: 0 0 30px #333;
 
-}
 .signup_link {
     
     margin-bottom: 40px;
@@ -42,12 +28,13 @@ body{
     color: #DEB6AB;
     
 }
-.header1{
+/*.header{
+    
     text-align: center;
-    padding-top: 10px;
-}
+    padding-top: 20px;
+}*/
 
-.header1 .h1{
+.header .h1{
     color:#edea22ec;
     font-size: 20px;
     margin-bottom:30px;
@@ -55,7 +42,7 @@ body{
     
 
 }
-.header1 .img{
+.header .img{
     
     text-align: left;
 }
