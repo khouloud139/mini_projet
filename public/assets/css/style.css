@@ -49,6 +49,11 @@ h6 {
   border-radius: 4px;
   transition: all 0.4s;
 }
+.wave{
+
+
+  background: url(/assets/img/slide/slide-3.jpg);
+}
 
 .back-to-top i {
   font-size: 28px;
@@ -74,6 +79,9 @@ h6 {
   transition: all 0.5s;
   z-index: 997;
   height: 80px;
+}
+#header :before{
+  clip-path: polygon(100% 0,0 100%,100% 100%);
 }
 
 #header .logo {
@@ -390,6 +398,8 @@ h6 {
   background-color: rgba(17, 17, 17, 0.8);
   overflow: hidden;
   padding: 0;
+
+
 }
 
 #hero .carousel-item {
@@ -400,16 +410,22 @@ h6 {
   background-repeat: no-repeat;
   position: relative;
   transition: 0.3;
+  
+ 
 }
 
-#hero .carousel-item::before {
-  content: "";
-  background-color: rgba(0, 0, 0, 0.5);
+
+#hero .carousel-item::before{
+  content:'';
   position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
   bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+ /* background: #fff;
+  clip-path: polygon(0 100%, 100% 100%, 100% 55%, 51% 67%, 0 55%);*/
+
 }
 
 #hero .carousel-container {
@@ -421,6 +437,7 @@ h6 {
   top: 0;
   left: 0;
   right: 0;
+
 }
 
 #hero .carousel-content {
@@ -623,11 +640,26 @@ section {
 }
 
 .about .image {
-  background: url("../img/about.jpg") center center no-repeat;
+  
+  background: url("../img/fe.jpg") center center no-repeat ;
   background-size: cover;
+ 
   min-height: 400px;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 14% 50%, 0% 0%);
 }
+/*.about .image::before{
+content:'';
+position: absolute;
+top:0;
+left:0;
+width: 100%;
+height: 100%;
+background: url("../img/map.jpg");
 
+background-size: cover;
+mix-blend-mode: screen;
+}
+*/
 @media (max-width: 991px) {
   .about .image {
     text-align: center;
