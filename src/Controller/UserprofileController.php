@@ -8,7 +8,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserprofileController extends AbstractController
 {
-    #[Route('/userprofile', name: 'app_userprofile')]
+    #[
+        Route('/userprofile', name: 'app_userprofile'),
+        IsGranted('ROLE_USER')
+        ]
     public function index(): Response
     {
         return $this->render('userprofile/index.html.twig', [
