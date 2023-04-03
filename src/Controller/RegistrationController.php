@@ -34,6 +34,7 @@ class RegistrationController extends AbstractController
             //token
             $tokenRegistration=$tokenGeneratorInterface->generateToken();
             //User
+            $user->setRoles(['ROLE_USER']);
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
