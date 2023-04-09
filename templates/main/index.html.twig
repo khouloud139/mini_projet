@@ -60,12 +60,12 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto active" href="#hero">Accueil</a></li>
+          <li><a class="nav-link scrollto" href="#about">Qui sommes-Nous?</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a class="nav-link scrollto " href="#portfolio">Activités</a></li>
+          {# <li><a class="nav-link scrollto" href="#team">Team</a></li> #}
+          {# <li><a href="blog.html">Blog</a></li> #}
           
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
@@ -140,10 +140,10 @@
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown">TUNISIE</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <div>
-                  <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-                </div>
+                <p class="animate__animated animate__fadeInUp">Les montagnes verdoyantes du Nord de la Tunisie offrent des paysages naturels d'une beauté rare, avec leurs forêts luxuriantes, leurs rivières cristallines et leurs vallées pittoresques, créant un cadre idéal pour le camping en pleine nature.</p>
+                {# <div> #}
+                  {# <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> #}
+                {# </div> #}
               </div>
             </div>
           </div>
@@ -153,10 +153,10 @@
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown">TUNISIE</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <div>
-                  <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-                </div>
+                <p class="animate__animated animate__fadeInUp">La région du Nord tunisien regorge de sites naturels enchanteurs Les campeurs pourront se ressourcer au cœur de ces paysages préservés et profiter de la richesse de la biodiversité locale..</p>
+                {# <div> #}
+                  {# <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> #}
+                {# </div> #}
               </div>
             </div>
           </div>
@@ -166,19 +166,30 @@
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown">TUNISIE</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <div>
-                  <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-                </div>
+                <p class="animate__animated animate__fadeInUp">Les montagnes situées dans le Nord de la Tunisie, offrent des paysages montagneux enchanteurs propices au camping, avec leurs forêts denses, leurs rivières cristallines et leurs sentiers de randonnée sinueux, offrant ainsi aux campeurs un cadre idéal pour se connecter à la nature et profiter d'une expérience de camping mémorable au cœur de la montagne..</p>
+                {# <div> #}
+                  {# <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> #}
+                {# </div> #}
               </div>
             </div>
           </div>
-          
+        <!-- Slide 4 -->
+          <div class="carousel-item" style="background-image: url(assets/img/sahara.jpg), linear-gradient(to bottom, #ffffff00 0%, #ffffff00 50%, #000000 50%, #000000 100%);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">TUNISIE</h2>
+                <p class="animate__animated animate__fadeInUp">Le Sahara, vaste désert du sud de la Tunisie, offre des dunes de sable doré à perte de vue, créant un paysage spectaculaire et captivant, idéal pour les amateurs de camping en plein désert.</p>
+                {# <div> #}
+                  {# <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> #}
+                {# </div> #}
+              </div>
+            </div>
+          </div>  
 
 
-        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-        </a>
+         <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev"> 
+           <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span> 
+         </a> 
 
         <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
           <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
@@ -206,32 +217,16 @@
           <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"></div>
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
             <div class="content d-flex flex-column justify-content-center">
-              <h3>Voluptatem dignissimos provident quasi</h3>
+              <h3>Qui sommes-Nous ?</h3>
+              <br>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                Nous sommes deux étudiantes passionnées par le camping et les activités de plein air, et nous avons décidé de créer une application de camping pour aider les campeurs à planifier et à profiter de leurs voyages de camping. Nous sommes convaincus que notre application sera un outil précieux pour les campeurs, qu'ils soient débutants ou expérimentés, en leur offrant une expérience utilisateur conviviale et pratique qui leur permettra de trouver des campings, de réserver des emplacements et de découvrir les activités de plein air à proximité.
               </p>
-              <div class="row">
-                <div class="col-md-6 icon-box">
-                  <i class="bx bx-receipt"></i>
-                  <h4>Corporis voluptates sit</h4>
-                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                </div>
-                <div class="col-md-6 icon-box">
-                  <i class="bx bx-cube-alt"></i>
-                  <h4>Ullamco laboris nisi</h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                </div>
-                <div class="col-md-6 icon-box">
-                  <i class="bx bx-images"></i>
-                  <h4>Labore consequatur</h4>
-                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                </div>
-                <div class="col-md-6 icon-box">
-                  <i class="bx bx-shield"></i>
-                  <h4>Beatae veritatis</h4>
-                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
-                </div>
-              </div>
+              <br>
+              <p>
+En tant qu'amateurs de camping nous-mêmes, nous comprenons l'importance de trouver des campings avec des commodités de qualité et des emplacements bien entretenus. Nous avons donc travaillé dur pour créer une base de données exhaustive de terrains de camping de qualité supérieure, avec des descriptions détaillées et des images pour aider les campeurs à trouver les meilleures options pour leurs voyages.
+              </p>
+              
             </div><!-- End .content-->
           </div>
         </div>
@@ -248,32 +243,32 @@
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
               <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> consequuntur quae</p>
+              <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Clients satisfaits</strong></p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
               <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> adipisci atque cum quia aut</p>
+              <span data-purecounter-start="0" data-purecounter-end="98" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Activités</strong> </p>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch"> 
             <div class="count-box">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
+              <i class="bi bi-people"></i>
+              <span data-purecounter-start="0" data-purecounter-end="14" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Guides touristiques</strong> </p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
               <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hard Workers</strong> rerum asperiores dolor</p>
+              <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Membres d'équipe</strong> </p>
             </div>
           </div>
 
@@ -283,7 +278,7 @@
     </section><!-- End Counts Section -->
 
     <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients section-bg">
+    {# <section id="clients" class="clients section-bg"> 
       <div class="container">
 
         <div class="row">
@@ -315,7 +310,7 @@
         </div>
 
       </div>
-    </section><!-- End Clients Section -->
+    </section><!-- End Clients Section -->#}
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
@@ -323,39 +318,39 @@
 
         <div class="section-title">
           <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Nous sommes heureux de vous offrir une gamme de services pour que votre expérience en camping soit inoubliable. Voici quelques-uns des services que nous proposons:</p>
         </div>
 
         <div class="row">
           <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bi bi-bar-chart"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bi bi-binoculars"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bi bi-brightness-high"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+            <div class="icon"><i class="bi bi-calendar-check"></i></div>
+            <h4 class="title">Réservation de terrains de camping<a href=""></a></h4>
+            <p class="description">Réserver des emplacements de camping dans différents campings, en affichant les disponibilités, les tarifs et les informations sur les équipements.</p>
           </div>
           <div class="col-lg-4 col-md-6 icon-box">
             <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+            <h4 class="title"><a href="">Réservation pour des rondonnées</a></h4>
+            <p class="description">Réserver pour des randonnées guidées pour découvrir les paysages magnifiques de la région</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box">
+            <div class="icon"><i class="bi bi-cloud-sun"></i></div>
+            <h4 class="title"><a href="">Météo en temps réel</a></h4>
+            <p class="description">Fournir des informations météorologiques en temps réel pour la région où se trouve le camping ou le sentier de randonnée.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box">
+            <div class="icon"><i class="bi bi-binoculars"></i></div>
+            <h4 class="title"><a href="">Guide touristique</a></h4>
+            <p class="description">Guide touristique avec des informations sur les attractions touristiques à proximité du camping ou du sentier de randonnée.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box">
+            <div class="icon"><i class="bi bi-exclamation-triangle"></i></div>
+            <h4 class="title"><a href="">Conseils</a></h4>
+            <p class="description">Des conseils sur les meilleures activités à faire dans la région</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box">
+            <div class="icon"><i class="bi bi-chat-dots"></i></div>
+            <h4 class="title"><a href="">Fonctionnalités sociales</a></h4>
+            <p class="description">Permettre aux utilisateurs de partager leurs expériences de camping et de randonnée avec d'autres utilisateurs.</p>
           </div>
         </div>
 
@@ -363,7 +358,7 @@
     </section><!-- End Services Section -->
 
     <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
+    {# <section id="why-us" class="why-us"> 
       <div class="container">
 
         <div class="section-title">
@@ -401,23 +396,23 @@
 
       </div>
     </section><!-- End Why Us Section -->
-
+      #}
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
       <div class="container">
 
         <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Activités</h2>
+          <p>Bienvenue dans notre univers naturel ! Découvrez nos activités de camping et de randonnée pour vous aventurer au cœur de la beauté sauvage et profiter d'une expérience en plein air inoubliable.</p>
         </div>
 
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter="*" class="filter-active">Tous</li>
+              <li data-filter=".filter-app">Camping</li>
+              <li data-filter=".filter-card">Randonnées</li>
+              {# <li data-filter=".filter-web">Web</li> #}
             </ul>
           </div>
         </div>
@@ -426,26 +421,12 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+              <img src="assets/img/portfolio/bnimtir.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
+                <h4>Camping à Beni Mtir</h4>
+                <p>Situé au cœur de la nature préservée de Beni Mtir, notre camping vous offre un refuge tranquille et enchanteur pour vous évader de la routine quotidienne et vous reconnecter avec la nature.</p>
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="assets/img/portfolio/Bnimtir.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Camping à Beni Mtir (Centre de camping Bouhertma Outdoors)"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -454,12 +435,12 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+              <img src="assets/img/portfolio/aindraham.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 2</h4>
-                <p>App</p>
+                <h4>Camping à Ain Draham Jendouba</h4>
+                <p>Bienvenue dans notre camping niché au cœur des forêts de Fernena à Jendouba ! Notre site de camping est un véritable havre de paix pour les amoureux de la nature, offrant un cadre enchanteur pour une escapade en plein air.</p>
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+                  <a href="assets/img/portfolio/ainDraham.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Camping à Ain Draham Jendouba "><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -468,26 +449,26 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+              <img src="assets/img/portfolio/zaghouan.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Card 2</h4>
-                <p>Card</p>
+                <h4>Randonnée à Jbal zaghouan  </h4>
+                <p>Explorez la beauté naturelle et spirituelle de Jbal Zaghouan et découvrez le mystérieux Temple des Eaux lors d'une escapade unique au cœur de la Tunisie.</p>
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                  <a href="assets/img/portfolio/zaghouan.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Randonnée à Jbal Zaghouan et temples des eaux"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+              <img src="assets/img/portfolio/kessra.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Web 2</h4>
-                <p>Web</p>
+                <h4>Randonnée à Kessar Seliana</h4>
+                <p>Découvrez la splendeur naturelle de Kessra Seliana et ses paysages captivants, entre montagnes majestueuses, forêts verdoyantes et vues panoramiques à couper le souffle.</p>
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+                  <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Randonnée à Kessar Seliana"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -496,12 +477,26 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+              <img src="assets/img/portfolio/gh.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>App</p>
+                <h4>Camping à Cap Zbib Bizerte</h4>
+                <p>Le camping à Cap Zbib offre une expérience unique pour les amateurs de plein air et de nature. Situé dans un cadre côtier pittoresque en Tunisie, le camping à Cap Zbib permet de profiter de la beauté naturelle de la région tout en se rapprochant de la culture locale.</p>
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
+                  <a href="assets/img/portfolio/gh.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Camping à Cap Zbib Bizerte"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/chebba.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Caping à Chebba </h4>
+                <p>Les campeurs à Chebba peuvent profiter de la proximité des magnifiques plages de la région, offrant des opportunités de baignade, de farniente sur le sable doré et de pratiquer des sports nautiques comme la plongée en apnée, la planche à voile ou la pêche. </p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/chebba.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -510,12 +505,12 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+              <img src="assets/img/portfolio/aa.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Card 1</h4>
-                <p>Card</p>
+                <h4>Randonnée Oued Zen</h4>
+                <p>L'Oued Zen est un site de randonnée pittoresque situé dans les montagnes de l'ouest de la Tunisie, près de la ville d'Ain Draham. Cette région est connue pour ses paysages montagneux verdoyants, ses ruisseaux, ses cascades et ses forêts de cèdres, offrant une expérience de randonnée unique dans un environnement naturel préservé.</p>
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+                  <a href="assets/img/portfolio/ouedzen.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Randonnée Oued Zen"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -524,26 +519,28 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+              <img src="assets/img/portfolio/gwasmia.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Card 3</h4>
-                <p>Card</p>
+                <h4>Randonnée Oued Zitoun</h4>
+                <p> le randonnée à Oued Zitoun offre une expérience de plein air unique au milieu d'une nature préservée et pittoresque.</p>
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
+                  <a href="assets/img/portfolio/gwasmia.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Randonnée Oued Zitoun"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+              <img src="assets/img/portfolio/tozeur.png" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
+                <h4>Camping à Tozeur</h4>
+                <p>Les campings à Tozeur sont souvent situés dans des oasis ou à proximité des palmeraies, offrant ainsi un cadre naturel exceptionnel pour les campeurs. Vous pourrez profiter des vues sur les palmeraies, des jardins verdoyants et des paysages désertiques environnants.
+
+Les activités de plein air son.</p>
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="assets/img/portfolio/tozeur.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Camping à Tozeur"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -556,7 +553,7 @@
     </section><!-- End Portfolio Section -->
 
     <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
+    {# <section id="team" class="team"> 
       <div class="container">
 
         <div class="section-title">
@@ -641,10 +638,10 @@
         </div>
 
       </div>
-    </section><!-- End Team Section -->
+    </section><!-- End Team Section -->#}
 
     <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing">
+    {# <section id="pricing" class="pricing"> 
       <div class="container">
 
         <div class="section-title">
@@ -708,10 +705,10 @@
         </div>
 
       </div>
-    </section><!-- End Pricing Section -->
+    </section><!-- End Pricing Section --> #}
 
     <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="faq section-bg">
+    {# <section id="faq" class="faq section-bg"> 
       <div class="container">
 
         <div class="section-title">
@@ -771,14 +768,14 @@
 
       </div>
     </section><!-- End Frequently Asked Questions Section -->
-
+#}
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
 
         <div class="section-title">
           <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+           <p>N'hésitez pas à nous contacter pour toute question, commentaire ou demande d'assistance. Nous sommes là pour vous aider !  <p>
         </div>
 
         <div class="row contact-info">
@@ -787,7 +784,7 @@
             <div class="contact-address">
               <i class="bi bi-geo-alt"></i>
               <h3>Address</h3>
-              <address>A108 Adam Street, NY 535022, USA</address>
+              <address>Cité Taffala (Ibn Khaldoun) 4003 Sousse Tunisie</address>
             </div>
           </div>
 
@@ -795,7 +792,7 @@
             <div class="contact-phone">
               <i class="bi bi-phone"></i>
               <h3>Phone Number</h3>
-              <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+              <p><a href="tel:+155895548855">+216 99 041 166</a></p>
             </div>
           </div>
 
@@ -803,7 +800,7 @@
             <div class="contact-email">
               <i class="bi bi-envelope"></i>
               <h3>Email</h3>
-              <p><a href="mailto:info@example.com">info@example.com</a></p>
+              <p><a href="mailto:Camping@gmail.com">Camping@gmail.com</a></p>
             </div>
           </div>
 
@@ -847,12 +844,12 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>Groovin</h3>
+              <h3>Camping</h3>
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+               Cité Taffala (Ibn Khaldoun)  <br>
+                4003 Sousse Tunisie<br><br>
+                <strong>Phone:</strong> +216 99 041 166<br>
+                <strong>Email:</strong> camping@gmail.com<br>
               </p>
               <div class="social-links mt-3">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -874,7 +871,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
             </ul>
           </div>
-
+{#  
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
@@ -885,10 +882,10 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
             </ul>
           </div>
-
+#}
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+          
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
@@ -901,14 +898,14 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Groovin</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Camping</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/groovin-free-bootstrap-theme/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        {# Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> #}
       </div>
     </div>
   </footer><!-- End Footer -->
