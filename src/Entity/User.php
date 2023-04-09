@@ -3,12 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints\DateTime;
+use App\Entity\Demande;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -60,11 +63,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $userImage = null;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: demande::class, orphanRemoval: true)]
+    private Collection $demande;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Photo::class, orphanRemoval: true)]
+    private Collection $photo;
+
     public function __construct()
     {
  
         $this->isIsVerifed=false;
         //$this->getTokenRegistrationLifeTime=(new \DateTime('now'))->add(new DateInterval('P1D'));
+        $this->demande = new ArrayCollection();
+        $this->photo = new ArrayCollection();
     }
 
    
@@ -236,10 +247,70 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+    
+
+    /**
+     * @return Collection<int, demande>
+     */
+    public function getDemande(): Collection
+    {
+        return $this->demande;
+    }
+
+    public function addDemande(demande $demande): self
+    {
+        if (!$this->demande->contains($demande)) {
+            $this->demande->add($demande);
+            $demande->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDemande(demande $demande): self
+    {
+        if ($this->demande->removeElement($demande)) {
+            // set the owning side to null (unless already changed)
+            if ($demande->getUser() === $this) {
+                $demande->setUser(null);
+            }
+        }
+
+        return $this;
+    }
     public function __toString(){
-        return $this->roles;
+        return $this->id;
         
     }
 
+    /**
+     * @return Collection<int, Photo>
+     */
+    public function getPhoto(): Collection
+    {
+        return $this->photo;
+    }
+
+    public function addPhoto(Photo $photo): self
+    {
+        if (!$this->photo->contains($photo)) {
+            $this->photo->add($photo);
+            $photo->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePhoto(Photo $photo): self
+    {
+        if ($this->photo->removeElement($photo)) {
+            // set the owning side to null (unless already changed)
+            if ($photo->getUser() === $this) {
+                $photo->setUser(null);
+            }
+        }
+
+        return $this;
+    }
    
 }

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>demande</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="/assets/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+		<link href="assets/vendor1/boxicons/css/boxicons.min.css" rel="stylesheet">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="/assets/css/styles.css">
+	</head>
+
+	<body>
+	 
+	  <header id="header" class="d-flex flex-column justify-content-center">
+  
+
+    <nav id="navbar" class="navbar nav-menu">
+      <ul>
+        <li><a href="{{path('app_main')}}" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Acceuil</span></a></li>
+        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Profile</span></a></li>
+        
+        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+        <li><a href="{{ path('app_demande') }}" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
+        <li><a href="{{ path('app_historique') }}" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Historique</span></a></li>
+        <li><a href="{{ path('app_logout') }}" class="nav-link scrollto"><i class=" bx bx-lock-alt"></i> <span>Déconnecter</span></a></li>
+      </ul>
+    </nav><!-- .nav-menu -->
+
+  </header><!-- End Header -->
+
+		<section class="wrapper"  >
+	
+			<div class="inner">
+				{{ form_start(demandeForm) }}
+					<h3>Ajouter une demande</h3>
+					<div class="form-group">
+						<div class="form-wrapper">
+							
+							<div class="form-holder">
+								
+								{{ form_row(demandeForm.Distination) }}
+							</div>
+						</div>
+						<div class="form-wrapper">
+							
+							<div class="form-holder">
+								
+								{{ form_row(demandeForm.lieudepart) }}
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-wrapper">
+							
+							<div >
+								
+								{{ form_row(demandeForm.datesortie) }}
+							</div>
+						</div>
+						<div class="form-wrapper">
+							
+							<div class="form-holder">
+								
+								{{ form_row(demandeForm.heuredepart) }}
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-wrapper">
+							
+							<div >
+								
+                                
+                                {{ form_row(demandeForm.nombreplaces) }}
+							</div>
+						</div>
+						<div class="form-wrapper">
+							
+							<div >
+								
+								{{ form_row(demandeForm.prix) }}
+							</div>
+						</div>
+					</div>
+					<div class="form-end">
+						<div class="form-wrapper">
+                        
+							
+							{{ form_row(demandeForm.type) }}
+						</div>
+						<div class="button-holder" >
+							<button type="submit" class="btn">Envoyer</button>
+						</div>
+						
+					</div>
+				{{ form_end(demandeForm) }}
+			</div>
+		</section>
+		
+	</body>
+</html>
+
+
+
+
+
+{#
+{% block body %}
+<body class="body">
+    <h1>Inscription</h1>
+
+    {{ form_start(demandeForm) }}
+     {{ form_row(demandeForm.Distination) }}
+     {{ form_row(demandeForm.lieudepart) }}
+     {{ form_row(demandeForm.datesortie) }}
+    
+     {{ form_row(demandeForm.heuredepart) }}
+     {{ form_row(demandeForm.type) }}
+     {{ form_row(demandeForm.nombreplaces) }}
+     {{ form_row(demandeForm.prix) }}
+         
+        <button type="submit" class="btn">S'inscrire</button>
+    {{ form_end(demandeForm) }}
+    </body>
+{% endblock %}
+#}

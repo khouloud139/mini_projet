@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 09</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="assets/vendor1/boxicons/css/boxicons.min.css" rel="stylesheet">
+	
+	<link rel="stylesheet" href="/assets/css/historique.css">
+
+	</head>
+	<body>
+     
+  <header id="header" class="d-flex flex-column justify-content-center">
+  
+
+    <nav id="navbar" class="navbar nav-menu">
+      <ul>
+        <li><a href="{{path('app_main')}}" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Acceuil</span></a></li>
+        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Profile</span></a></li>
+        
+        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+        <li><a href="{{ path('app_demande') }}" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
+        <li><a href="{{ path('app_historique') }}" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Historique</span></a></li>
+        <li><a href="{{ path('app_logout') }}" class="nav-link scrollto"><i class=" bx bx-lock-alt"></i> <span>Déconnecter</span></a></li>
+      </ul>
+    </nav><!-- .nav-menu -->
+
+  </header><!-- End Header -->
+    
+	<section class="ftco-section" >
+		<div class="container-fluid">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Votre historique de demande</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="table-wrap">
+						<table class="table table-striped">
+						  <thead>
+						    <tr>
+						      <th>Numero</th>
+						      <th>Distination</th>
+						      <th>Lieu de départ</th>
+						      <th>Date de sortie</th>
+						      <th>Heure de sortie</th>
+                              <th>Type</th>
+						      <th>Nombre des places</th>
+                              <th>Prix</th>
+                              <th>statut</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+                          {% for product in demande %}
+						    <tr>
+						      
+						      <td>{{ product.id }}</td>
+						      <td>{{product.Dis}}</td>
+						      <td>{{product.depart}}</td>
+						      <td>{{product.date}}</td>
+                              <td>{{product.heure}}</td>
+                              <td>{{product.type}}</td>
+                              <td>{{product.nombre}}</td>
+                              <td>{{product.prix}}</td>
+						      <td><a href="#" class="btn btn-warning">En cours</a></td>
+						    </tr>
+                            {% endfor %}
+                            
+
+						    
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    
+
+	<script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/popper.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+
+	</body>
+</html>
+
