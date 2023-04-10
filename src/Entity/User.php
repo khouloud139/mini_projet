@@ -66,16 +66,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: demande::class, orphanRemoval: true)]
     private Collection $demande;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Photo::class, orphanRemoval: true)]
-    private Collection $photo;
-
     public function __construct()
     {
  
         $this->isIsVerifed=false;
         //$this->getTokenRegistrationLifeTime=(new \DateTime('now'))->add(new DateInterval('P1D'));
         $this->demande = new ArrayCollection();
-        $this->photo = new ArrayCollection();
     }
 
    
@@ -281,36 +277,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __toString(){
         return $this->id;
         
-    }
-
-    /**
-     * @return Collection<int, Photo>
-     */
-    public function getPhoto(): Collection
-    {
-        return $this->photo;
-    }
-
-    public function addPhoto(Photo $photo): self
-    {
-        if (!$this->photo->contains($photo)) {
-            $this->photo->add($photo);
-            $photo->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removePhoto(Photo $photo): self
-    {
-        if ($this->photo->removeElement($photo)) {
-            // set the owning side to null (unless already changed)
-            if ($photo->getUser() === $this) {
-                $photo->setUser(null);
-            }
-        }
-
-        return $this;
     }
    
 }
