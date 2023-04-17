@@ -43,7 +43,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #0563bb;
+  background: #026b04;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -57,7 +57,7 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #0678e3;
+  background: #42a743;
   color: #fff;
 }
 
@@ -295,7 +295,20 @@ h6 {
  margin-top: 50px;
 }
 .mod:hover{
-  background-color: #022c16;
+  background-color: #42a743;
+}
+.mod1{
+  background-color: #026b04;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  
+  margin-top: 0px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.mod1:hover{
+  background-color: #42a743;
 }
 
 #hero:before {
@@ -335,14 +348,14 @@ h6 {
 #hero .social-links a {
   font-size: 24px;
   display: inline-block;
-  color: #45505b;
+  color: #026b04;
   line-height: 1;
   margin-right: 20px;
   transition: 0.3s;
 }
 
 #hero .social-links a:hover {
-  color: #0563bb;
+  color: #026b04;
 }
 
 @media (max-width: 992px) {
@@ -617,7 +630,7 @@ section {
 
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
-  color: #0563bb;
+  color: #026b04;
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -1194,7 +1207,7 @@ section {
 #footer .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #0563bb;
+  background: #026b04;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -1207,7 +1220,7 @@ section {
 }
 
 #footer .social-links a:hover {
-  background: #0678e3;
+  background: #42a743;
   color: #fff;
   text-decoration: none;
 }

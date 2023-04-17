@@ -21,7 +21,7 @@
     <nav id="navbar" class="navbar nav-menu">
       <ul>
         <li><a href="{{path('app_main')}}" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Acceuil</span></a></li>
-        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Profile</span></a></li>
+        <li><a href="{{ path('app_userprofile') }}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Profile</span></a></li>
         
         <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
         <li><a href="{{ path('app_demande') }}" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
@@ -87,7 +87,7 @@
 						</div>
 					</div>
 					<div class="form-end">
-						<div class="form-wrapper">
+						<div class="form-wrapper" >
                         
 							
 							{{ form_row(demandeForm.type) }}
