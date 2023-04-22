@@ -69,10 +69,10 @@
                               <td>{{product.type}}</td>
                               <td>{{product.nombre}}</td>
                               <td>{{product.prix}}</td>
-							  {% if product.statut == "Accepté" %}
+							  {% if product.statut == "approuvee" %}
 						      <td><a href="#" class="btn btn-success">{{product.statut}}</a></td>
 							  
-							  {% elseif product.statut == "Refusé" %}
+							  {% elseif product.statut == "refusee" %}
 						      <td><a href="#" class="btn btn-danger">{{product.statut}}</a></td>
 							  
 							  {% else %}
