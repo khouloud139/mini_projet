@@ -1,8 +1,141 @@
-{% extends 'base.html.twig '%}
-{% block title%} Modification des données {% endblock %}  
-{% block body %}
+{# {% extends 'base.html.twig '%} #}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Modifier Profile</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-salut
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="/assets/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+		<link href="assets/vendor1/boxicons/css/boxicons.min.css" rel="stylesheet">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="/assets/css/styles.css">
+	</head>
+
+	<body>
+	 
+	  <header id="header" class="d-flex flex-column justify-content-center">
+  
+
+    <nav id="navbar" class="navbar nav-menu">
+      <ul>
+        <li><a href="{{path('app_main')}}" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Acceuil</span></a></li>
+        <li><a href="{{ path('app_userprofile') }}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Profile</span></a></li>
+        
+        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+        <li><a href="{{ path('app_demande') }}" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
+        <li><a href="{{ path('app_historique') }}" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Historique</span></a></li>
+        <li><a href="{{ path('app_logout') }}" class="nav-link scrollto"><i class=" bx bx-lock-alt"></i> <span>Déconnecter</span></a></li>
+      </ul>
+    </nav><!-- .nav-menu -->
+
+  </header><!-- End Header -->
+
+		<section class="wrapper"  >
+	
+			<div class="inner">
+				{{ form_start(form) }}
+					<h3>Modifier votre profil</h3>
+					<div class="form-group">
+						<div class="form-wrapper">
+							
+							<div class="form-holder">
+								
+								{{ form_row(form.username) }}
+							</div>
+						</div>
+						<div class="form-wrapper">
+							
+							<div class="form-holder">
+								
+								{{ form_row(form.userlastname) }}
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-wrapper">
+							
+							<div class="form-holder" >
+								
+								{{ form_row(form.adresse) }}
+							</div>
+						</div>
+						 <div class="form-wrapper">
+							
+							<div class="form-holder">
+								
+								{{ form_row(form.email) }}
+							</div>
+						  
+                        </div>
+                    </div>
+                     <div class="form-group">
+						<div class="form-wrapper">
+							
+							<div class="form-holder">
+								
+								{{ form_row(form.password) }}
+							</div>
+						</div>
+								<div class="form-wrapper">
+							
+							<div class="form-holder">
+								
+								{{ form_row(form.numtel) }}
+							</div>
+						</div>
+						</div>
+                    
+                        {#
+					</div>
+					<div class="form-group">
+						<div class="form-wrapper">
+							
+							<div >
+								
+                                
+                                {{ form_row(form.nombreplaces) }}
+							</div>
+						</div>
+						<div class="form-wrapper">
+							
+							<div >
+								
+								{{ form_row(form.prix) }}
+							</div>
+						</div>
+					</div>
+					<div class="form-end">
+						<div class="form-wrapper" >
+                        
+							
+							{{ form_row(form.type) }}
+						</div> 
+						<div class="button-holder" >
+							<button type="submit" class="btn">Envoyer</button>
+						</div>
+						
+					</div>#}
+				{{ form_end(form) }}
+			</div>
+		</section>
+		
+	</body>
+</html>
+{#{% block title %}Modifier les coordonnées{% endblock %}
+
+{% block body %}
+    <h1>Modifier les coordonnées</h1>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    {{ form_end(form) }}
+{% endblock %} #}
+
+
+{# salut #}
 {#<div class="container">
 <h1 class="mt-4">Modifier le profil</h1>
 <div class="form-group">
@@ -22,4 +155,4 @@ salut
         {# <button type="submit">Enregistrer</button> #}
     {# {{ form_end(form) }}  #}
 {# {{form(form)}}   #}
- {% endblock %} 
+ {# {% endblock %}  #}

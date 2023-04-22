@@ -108,9 +108,11 @@
               </div>
             </div>
             <div >
-            <button class="mod" > Modifier Votre Profile </button>
+             <a href="{{ path('user_edit', {'id': app.user.id}) }}" class="mod">Modifier les coordonnées</a>
+            {# <button class="mod" > Modifier Votre Profile </button> #}
             </div>
-           {# href={{path('user.update')}} #}
+          {# href={{path('user.update')}} #}
+          {# <a href="{{ path('user_edit', {'id': user.id}) }}" class="mod">Modifier les coordonnées</a> #}
           </div>
         </div>
 

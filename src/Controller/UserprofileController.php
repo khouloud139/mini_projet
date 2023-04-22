@@ -11,6 +11,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use App\Form\PhotoType;
 use App\Entity\User;
 use App\Entity\Photo;
+use App\Form\UserType;
 
 class UserprofileController extends AbstractController
 {
@@ -136,4 +137,44 @@ class UserprofileController extends AbstractController
             'photo' => $photoData,
         ]);
     }
-}
+
+    #[
+        Route('/user/edit/{id}', name: 'user_edit'),
+        IsGranted('ROLE_USER')
+        ]
+  public function edit(Request $request, User $user,EntityManagerInterface $entityManager): Response
+        {
+            $form = $this->createForm(UserType::class, $user);
+            $form->handleRequest($request);
+    
+            if ($form->isSubmitted() && $form->isValid()) {
+                // Enregistrer les modifications dans la base de données
+               // $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($user);
+                $entityManager->flush();
+    
+                $this->addFlash('success', 'Les coordonnées ont été modifiées avec succès.');
+    
+                // Rediriger vers la page de profil ou une autre page appropriée
+                return $this->redirectToRoute('app_userprofile');
+            }
+             // Upload the image file if it was uploaded
+            /*$imageFile = $form->get('userImage')->getData();
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+                $imageFile->move(
+                    $this->getParameter('image_directory'),
+                    $newFilename
+                );
+                $user->setUserImage($newFilename);
+            }
+
+             $entityManager->flush(); */
+            return $this->render('userprofile/update.html.twig', [
+                'form' => $form->createView(),
+                'user' => $user,
+            ]);
+        }
+    }
+

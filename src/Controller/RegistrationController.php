@@ -93,7 +93,7 @@ class RegistrationController extends AbstractController
 
             );
             // do anything else you need here, like send an email
-            $this->addFlash('success','votre compte a bien ete cree,veuiller virifier votre email pour l\'active');
+            $this->addFlash('success','votre compte a bien ete cree,veuiller verifier votre email pour l\'active');
 
             return $this->redirectToRoute('app_login');
         }
