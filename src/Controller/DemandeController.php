@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Demande;
 use App\Form\DemandeType;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 
 class DemandeController extends AbstractController
@@ -17,7 +18,8 @@ class DemandeController extends AbstractController
     #[Route('/demande', name: 'app_demande')]
     public function index(Request $request,
     EntityManagerInterface $entityManager,
-    Security $security): Response
+    Security $security,
+    SluggerInterface $slugger): Response
     {
         $user = $security->getUser();
 
@@ -34,6 +36,29 @@ class DemandeController extends AbstractController
 
             // Récupérer l'utilisateur connecté
             $user = $this->getUser();
+            $brochureFile = $form->get('photo')->getData();
+
+            
+            if ($brochureFile) {
+                $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
+                
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
+
+                
+                try {
+                    $brochureFile->move(
+                        $this->getParameter('user_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                
+                $demande->setPhoto($newFilename);
+                
+            }
 
             // Associer l'utilisateur à la demande
             $demande->setUser($user);
