@@ -17,7 +17,7 @@ class ProgrammeController extends AbstractController
     {
 
  // Récupérer l'ID de l'utilisateur connecté
- $user_id = $this->getUser()->getId();
+//  $user_id = $this->getUser()->getId();
 
  
  
@@ -28,14 +28,9 @@ class ProgrammeController extends AbstractController
      ->select('d')
      ->from(Demande::class, 'd')
      ->where('d.statut = :statut')
-     ->setParameter('statut', 'Accepté');
+     ->setParameter('statut', 'approuvee');
 
  $demandes = $queryBuilder->getQuery()->getResult();
-
-
- 
- 
-
  $demandeData = [];
  foreach ($demandes as $demande) {
      $demandeData[] = [
@@ -43,7 +38,7 @@ class ProgrammeController extends AbstractController
         'id' => $demande->getId(),
         'Dis' => $demande->getDistination(),
         'depart' => $demande->getLieuDepart(),
-        'date' => $demande->getDateSortie()->format('d/m/Y'),
+        'date' => $demande->getDateSortie()->format('y-m-d'),
         'heure' => $demande->getHeureDepart()->format('H:m'),
         'type' => $demande->getType(),
         'nombre' => $demande->getNombrePlaces(),
