@@ -4,6 +4,9 @@ controllers:
 programme_details:
     path: /programme/{id}
     controller: App\Controller\ProgrammeController::show
+programme_reservation:
+    path: /reservation/{id}/{idd}/{idu}
+    controller: App\Controller\ProgrammeController::reserv
 
 kernel:
     resource: ../src/Kernel.php

@@ -6,9 +6,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\User;
 use App\Entity\Demande;
+use App\Entity\Reservation;
+use App\Form\ReservationType;
 
 class ProgrammeController extends AbstractController
 {
@@ -16,8 +19,11 @@ class ProgrammeController extends AbstractController
     public function index(Request $request,EntityManagerInterface $entityManager): Response
     {
 
+// <<<<<<< HEAD
  // Récupérer l'ID de l'utilisateur connecté
 //  $user_id = $this->getUser()->getId();
+ 
+// >>>>>>> b5444ff570f56762582f4197f2c3f2f5c89db649
 
  
  
@@ -53,21 +59,8 @@ class ProgrammeController extends AbstractController
  }
  
 
-
  // Faire quelque chose avec les données récupérées
  // ...
-
- 
-
-
-
-
-
-
-
-
-
-
 
         return $this->render('programme/index.html.twig', [
             'demandes' => $demandeData,
@@ -77,15 +70,42 @@ class ProgrammeController extends AbstractController
 
 
     #[Route('/programme/{id}', name: 'programme_details')]
-    public function show(Request $request,EntityManagerInterface $entityManager ,$id): Response
+    public function show(Request $request,EntityManagerInterface $entityManager ,$id,Security $security): Response
     {
         $demandeRepository = $entityManager->getRepository(Demande::class);
         $demandes = $demandeRepository->findBy(['id' => $id]);
+        $user = $this->getUser();
+        
+        $reservation = new Reservation();
+        $form = $this->createForm(ReservationType::class, $reservation);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $reservation = $form->getData();
+        
+            // Associer l'utilisateur à la demande
+            $reservation->setDemande($demandes[0]);
+            $reservation->setMontant($demandes[0]->getPrix() *$reservation->getNombreplace());
+            //dd($reservation);
+            $entityManager->persist($reservation);
+            $entityManager->flush();
+            
+            if ($security->isGranted('ROLE_USER')) {
+                return $this->redirectToRoute('programme_reservation',[
+                    'id' => $reservation->getId(),
+                    'idd' => $id,
+                    'idu' => $user->getId(),
+                ]);
+            }
+            else{
+            return $this->redirectToRoute('app_login') ;}
+        }
+
+
         
 
-    if (!$demandes) {
+    if (!$reservation) {
         throw $this->createNotFoundException(
-            'Aucun produit trouvé pour l\'id '.$id
+            'Aucun reservation trouvé pour l\'id '.$reservation->getId()
         );
     }
      $demandeData = [];
@@ -113,8 +133,89 @@ class ProgrammeController extends AbstractController
 
         return $this->render('programme/detail.html.twig', [
             'demande' => $demandeData,
+            'form' => $form->createView(),
+            'reservation'=>$reservation,
         ]);
 
     }
 
+
+
+
+    #[Route('/reservation/{id}/{idd}/{idu}', name: 'programme_reservation')]
+    public function reserv(Request $request,EntityManagerInterface $entityManager ,$id,$idd,$idu): Response
+    {
+        
+        $demandeRepository = $entityManager->getRepository(Demande::class);
+        $demandes = $demandeRepository->findBy(['id' => $idd]);
+
+        $resRepository = $entityManager->getRepository(Reservation::class);
+        $reservations = $resRepository->findBy(['id' => $id]);
+
+        $userRepository = $entityManager->getRepository(User::class);
+        $user = $userRepository->findBy(['id' => $idu]);
+        
+
+
+
+
+        $demandeData = [];
+      foreach ($demandes as $demande) {
+     $demandeData[] = [
+         
+        'id' => $demande->getId(),
+        'Dis' => $demande->getDistination(),
+        'depart' => $demande->getLieuDepart(),
+        'date' => $demande->getDateSortie()->format('d/m/Y'),
+        'heure' => $demande->getHeureDepart()->format('H:m'),
+        'type' => $demande->getType(),
+        'nombre' => $demande->getNombrePlaces(),
+        'prix' => $demande->getPrix(),
+        'statut' =>$demande->getStatut(),
+        'titre' =>$demande->getTitre(),
+        'photo' =>$demande->getPhoto(),
+        'discription' =>$demande->getDiscription(),
+    ];}
+     $resData = [];
+     foreach ($reservations as $res) {
+    $resData[] = [
+        
+       'id' => $res->getId(),
+       'nb' => $res->getNombreplace(),
+    ];}
+    $userData = [];
+    foreach ($user as $us) {
+   $userData[] = [
+       
+      'id' => $us->getId(),
+      'nom' => $us->getUsername(),
+      'prenon' => $us->getUserlastname(),
+      'email' => $us->getEmail(),
+    
+   ];}
+    
+ 
+        return $this->render('programme/reservation.html.twig', [
+            'demande' => $demandeData,
+            'reservation' => $resData,
+            'user' => $userData,
+            
+            
+        ]);
+
+    }
+    #[Route('/confirmation', name: 'confirmation_paiement')]
+    public function confirmation_paiement(Request $request,EntityManagerInterface $entityManager ):Response
+    {
+     
+    
+    return $this->render('programme/confirmation.html.twig');
+    }
+
+
+
+
 }
+
+
+

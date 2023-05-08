@@ -36,6 +36,7 @@ class DemandeController extends AbstractController
 
             // Récupérer l'utilisateur connecté
             $user = $this->getUser();
+            
             $brochureFile = $form->get('photo')->getData();
 
             

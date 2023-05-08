@@ -678,89 +678,59 @@
 						</div>
                         {% endfor %}
 						<!-- event-details - end -->
-
-						
+						<style>
+						.mod1{
+  background-color: #026b04;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  
+  margin-top: 0px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.mod1:hover{
+  background-color: #42a743;
+}
+						</style>
+						<!-- modal start  -->
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+    
+      <!-- Modal content-->
+      <div class="modal-content" >
+        <div class="modal-header" style="background-color:#026b04;" >
+        <h4 class="modal-title" style="  text-align: center; margin-left:100px ; color:#fff;">Ajouter le nombre des places</h4>
+          <button type="button" class="close" data-dismiss="modal" style="color:#fff;">&times;</button>
+          
+        </div>
+        <div class="modal-body">
+		{% for demand in demande %}
+          {{ form_start(form) }}
+          {{ form_row(form.nombreplace) }}
+		  <a href="{{path('programme_details', {'id': demand.id}) }}  "> <button type="submit" class="mod1" style="margin-left:385px; margin-top:20px;" >Réserver</button></a>
+         
+          {{ form_end(form) }}
+		  {% endfor %}
+          
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+						<!-- modal End -->
 
 						
 						<!-- register-wrapper - start -->
 						<div class="register-wrapper mb-80 clearfix">
-
+{% for demand in demande %}
 							<div class="section-title text-left mb-50">
 								<span class="line-style"></span>
-								<h2 class="big-title">register <strong>now</strong></h2>
-							</div>
-
-							<div class="register-table">
-								<ul>
-									<li class="rt-header">
-										<div class="header-leftside-content">SUN, <strong>DEC 26, 2018,</strong> 15:00 PM – THU, <strong>DEC 28, 2018,</strong> 10:00 PM</div>
-										<div class="header-rightside-content">Sales end on December 31</div>
-									</li>
-									<li class="rt-body">
-										<div class="rt-body-item">
-											<div class="leftside-content">
-												<h3 class="ticket-title">Harmoni Package 1</h3>
-												<span class="ticket-price">$120.00 + FEE $5.00</span>
-											</div>
-											<div class="rightside-content">
-												<div class="ticket-select">
-													<select id="ticket-select1">
-														<option selected>0 TICKET</option>
-														<option value="1">1 TICKET</option>
-														<option value="2">2 TICKET</option>
-														<option value="3">3 TICKET</option>
-													</select>
-												</div>
-											</div>
-										</div>
-
-										<div class="rt-body-item">
-											<div class="leftside-content">
-												<h3 class="ticket-title">Harmoni Package 2</h3>
-												<span class="ticket-price">$120.00 + FEE $5.00</span>
-											</div>
-											<div class="rightside-content">
-												<div class="ticket-select">
-													<select id="ticket-select2">
-														<option selected>0 TICKET</option>
-														<option value="1">1 TICKET</option>
-														<option value="2">2 TICKET</option>
-														<option value="3">3 TICKET</option>
-													</select>
-												</div>
-											</div>
-										</div>
-
-										<div class="rt-body-item">
-											<div class="leftside-content">
-												<h3 class="ticket-title">Harmoni Package 3</h3>
-												<span class="ticket-price">$120.00 + FEE $5.00</span>
-											</div>
-											<div class="rightside-content">
-												<div class="ticket-select">
-													<select id="ticket-select3">
-														<option selected>0 TICKET</option>
-														<option value="1">1 TICKET</option>
-														<option value="2">2 TICKET</option>
-														<option value="3">3 TICKET</option>
-													</select>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li class="rt-footer">
-										<div class="footer-leftside-content">
-											<span class="payment-card">
-												<img src="/assets/images/payment-cards.png" alt="payment_cards_not_found">
-											</span>
-											<span class="total-price">TOTAL PRICE :  $570.00</span>
-										</div>
-										<div class="footer-rightside-content">
-											<a href="#!" class="custom-btn">order now</a>
-										</div>
-									</li>
-								</ul>
-							</div>
+								<button type="button" " class="custom-btn" data-toggle="modal" data-target="#myModal" style="margin-left:300px;">Réserver Maintenant</button>
+								
+{% endfor %}
+							
 
 						</div>
 						<!-- register-wrapper - end -->
@@ -1066,7 +1036,13 @@ section{
 		================================================== -->
 
 
-
+<script>
+$(document).on("click","#cust_btn",function(){
+  
+  $("#myModal").modal("toggle");
+  
+})
+</script>
 
 
 
