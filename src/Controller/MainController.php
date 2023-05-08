@@ -15,4 +15,11 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
+    #[Route('/conseils', name: 'app_conseils')]
+    public function conseil(): Response
+    {
+        return $this->render('main/conseils.html.twig', [
+            'controller_name' => 'MainController',
+        ]);
+    }
 }

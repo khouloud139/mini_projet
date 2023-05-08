@@ -65,7 +65,7 @@ class DemandeController extends AbstractController
             $demande->setUser($user);
             $entityManager->persist($demande);
             $entityManager->flush();
-            return $this->redirectToRoute('app_userprofile') ;
+            return $this->redirectToRoute('app_demande') ;
         }
        
 

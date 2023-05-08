@@ -1,32 +1,30 @@
-<!doctype html>
-<html lang="en">
-  <head>
-  	<title>Login </title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Campa Holic</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		 <link href="/assets/img/tent.jpg" rel="icon">
+		
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="/assets/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<link rel="stylesheet" href="/assets/css/stylelog.css">
-
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="/assets/css/login.css">
 	</head>
-	<header>
-	
-	<h1 class="logo">Camping</h1>
-    
-	</header>
-	<body class="img js-fullheight" >
-	<section class="ftco-section">
-		<div class="container">
-			
-			<div class="row justify-content-center">
-				<div class="col-md-6 col-lg-4">
-					<div class="login-wrap p-0">
-		      	<h2 class="mb-4 text-center" style="color:#fff">Connexion</h2>
-		      	<form  method="post">
-				{% if error %}
+
+	<body>
+
+		<div class="wrapper" style="background:rgba(0,0,0,0.20)url('/assets/img/plan.jpg'); background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: cover;
+    background-blend-mode: darken;">
+			<div class="inner">
+				<div class="image-holder">
+					<img src="/assets/img/lo.jpg" alt="">
+				</div>
+				<form method="post">
+					{% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
@@ -35,81 +33,34 @@
             You are logged in as {{ app.user.email }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
-		      		<div class="form-group">
-		      			<!--<input type="text" class="form-control" placeholder="Username" required>!-->
-						<input type="email" value="{{ last_username }}" name="email" id="inputEmail"  placeholder="Username" class="form-control" autocomplete="email" required autofocus>
-		      		</div>
-	            <div class="form-group">
-	              <!--<input id="password-field" type="password" class="form-control" placeholder="Password" required>!-->
-				  <input type="password" name="password" id="inputPassword" placeholder="Password" class="form-control" autocomplete="current-password" required>
-
-                 <input type="hidden" name="_csrf_token"
-                 value="{{ csrf_token('authenticate') }}"
-                  >
-	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-	            </div>
-	            <div class="form-group">
-	            	<button type="submit" class="form-control btn btn-primary submit px-3">Se connecter</button>
-	            </div>
-	            <div class="form-group d-md-flex">
-	            	
-	          </form>
-	          <p class="w-100 text-center"><a href="/register">s'inscrire!</a></p>
-	          
-		      </div>
-				</div>
+					<h3 style="color:#026b04; margin-bottom: 120px;" >Login</h3>
+					
+					
+					<div class="form-wrapper">
+						<input type="email" value="{{ last_username }}" name="email" placeholder="Email " class="form-control">
+						<i class="zmdi zmdi-email"></i>
+					</div>
+					
+					<div class="form-wrapper">
+						<input type="password" placeholder="Mot De Passe" name="password" class="form-control">
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<input type="hidden" name="_csrf_token"
+					value="{{ csrf_token('authenticate') }}"
+					 >
+					<button type="submit" style="background-color:#026b04; margin-bottom:40px;">Login
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+ <p class="w-100 text-center" ><a  style="text-decoration:none; margin-left:120px; color:#026b04; " href="/register">s'inscrire!</a></p>
+				</form>
+               
 			</div>
+           
 		</div>
-	</section>
-
-	<script src="/aasets/js/jquery.min.js"></script>
+         
+		<script src="/aasets/js/jquery.min.js"></script>
   <script src="/aasets/js/popper.js"></script>
   <script src="/aasets/js/bootstrap.min.js"></script>
   <script src="/aasets/js/main2.js"></script>
-
-	</body>
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
-
-
-{#}
-
-{% block title %}Log in!{% endblock %}
-
-{% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.email }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
-{% endblock %} #}

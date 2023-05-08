@@ -9,8 +9,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-		<title>Harmoni - Event Details</title>
-		<link rel="shortcut icon" href="/assets/images/favicon.png">
+		<title>Campa Holic</title>
+		 <link href="/assets/img/tent.jpg" rel="icon">
 
 		<!-- fraimwork - css include -->
 		<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
@@ -34,8 +34,7 @@
 		<!-- color switcher css include -->
 		<link rel="stylesheet" type="text/css" href="/assets/css/colors/style-switcher.css">
 		<link id="color_theme" rel="stylesheet" type="text/css" href="/assets/css/colors/default.css">
-         <link href="/assets/img/icon.png" rel="icon">
-  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+      
 <link href="/assets/css/font-face.css" rel="stylesheet" media="all">
     <link href="/assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="/assets/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
@@ -109,7 +108,7 @@
 		<header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Camping</a></h1>
+       <a href="{{path('app_main')}}"> <img style="margin-top:10px;" src="/assets/img/ma.png" alt"" class="logo"></a>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -120,7 +119,7 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Activités</a></li>
           <li><a class="nav-link scrollto " href="{{path('app_programme')}}">Liste de programme</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Conseils</a></li>
+          <li><a class="nav-link scrollto " href="{{path('app_conseils')}}">Conseils</a></li>
           {# <li><a class="nav-link scrollto" href="#team">Team</a></li> #}
           {# <li><a href="blog.html">Blog</a></li> #}
           
@@ -156,7 +155,7 @@
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="{{path('app_userprofile')}}">
+                                                    <a href="{{path('app_userprofile', {'id': app.User.id})}}">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
@@ -672,27 +671,13 @@
 
 														<li>
 															<div class="form-item">
-																<select class="month-select">
-																	<option selected="">Month</option>
-																	<option>option 1</option>
-																	<option>option 2</option>
-																	<option>option 3</option>
-																	<option>option 4</option>
-																	<option>option 5</option>
-																</select>
+																<input type="number" placeholder="mois">
 															</div>
 														</li>
 
 														<li>
 															<div class="form-item">
-																<select class="year-select">
-																	<option selected="">Year</option>
-																	<option>option 1</option>
-																	<option>option 2</option>
-																	<option>option 3</option>
-																	<option>option 4</option>
-																	<option>option 5</option>
-																</select>
+																<input type="number" placeholder="annee">
 															</div>
 														</li>
 
@@ -799,8 +784,8 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>Camping</h3>
-              <p>
+               <a href="{{path('app_main')}}"> <img  src="/assets/img/ma.png" alt"" class="logo" style="margin-top:-95px"></a>
+              <p style="margin-top:-30px;margin-left:15px;">
                Cité Taffala (Ibn Khaldoun)  <br>
                 4003 Sousse Tunisie<br><br>
                 <strong>Phone:</strong> +216 99 041 166<br>

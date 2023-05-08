@@ -16,13 +16,29 @@ use App\Form\UserType;
 class UserprofileController extends AbstractController
 {
     #[
-        Route('/userprofile', name: 'app_userprofile'),
+        Route('/userprofile/{id}', name: 'app_userprofile'),
         IsGranted('ROLE_USER')
         ]
-    public function index(): Response
+    public function index(Request $request, User $user,EntityManagerInterface $entityManager,$id): Response
     {
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Enregistrer les modifications dans la base de données
+           // $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Les coordonnées ont été modifiées avec succès.');
+
+            // Rediriger vers la page de profil ou une autre page appropriée
+            return $this->redirectToRoute('app_userprofile',[
+                'id' => $id]);
+        }
         return $this->render('userprofile/index.html.twig', [
-           
+            'form' => $form->createView(),
+            'user' => $user,
         ]);
     }
 
@@ -78,7 +94,7 @@ class UserprofileController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', 'La photo a été ajoutée avec succès.');
 
-            return $this->redirectToRoute('app_userprofile') ;
+            return $this->redirectToRoute('app_img') ;
 
 
 
@@ -138,7 +154,7 @@ class UserprofileController extends AbstractController
         ]);
     }
 
-    #[
+   /* #[
         Route('/user/edit/{id}', name: 'user_edit'),
         IsGranted('ROLE_USER')
         ]
@@ -170,11 +186,11 @@ class UserprofileController extends AbstractController
                 $user->setUserImage($newFilename);
             }
 
-             $entityManager->flush(); */
+             $entityManager->flush(); 
             return $this->render('userprofile/update.html.twig', [
                 'form' => $form->createView(),
                 'user' => $user,
             ]);
-        }
+        }*/
     }
 

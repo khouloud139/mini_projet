@@ -9,14 +9,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-		<title>Harmoni - Event Grid</title>
-		<link rel="shortcut icon" href="assets/img/favicon.png">
+		<title>Campa Holic</title>
+		 <link href="/assets/img/tent.jpg" rel="icon">
 
 		<!-- fraimwork - css include -->
 		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <!-- Favicons -->
-  <link href="/assets/img/icon.png" rel="icon">
-  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+ 
 <link href="/assets/css/font-face.css" rel="stylesheet" media="all">
     <link href="/assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="/assets/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
@@ -82,7 +81,7 @@
 		<header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Camping</a></h1>
+       <a href="{{path('app_main')}}"> <img style="margin-top:10px;" src="/assets/img/ma.png" alt"" class="logo"></a>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -93,7 +92,7 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Activités</a></li>
           <li><a class="nav-link scrollto " href="{{path('app_programme')}}">Liste de programme</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Conseils</a></li>
+          <li><a class="nav-link scrollto " href="{{path('app_conseils')}}">Conseils</a></li>
           {# <li><a class="nav-link scrollto" href="#team">Team</a></li> #}
           {# <li><a href="blog.html">Blog</a></li> #}
           
@@ -129,7 +128,7 @@
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="{{path('app_userprofile')}}">
+                                                    <a href="{{path('app_userprofile', {'id': app.User.id})}}">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
@@ -564,24 +563,17 @@
 					<!-- search-form - start -->
 					<div class="col-lg-8 col-md-12 col-sm-12">
 						<div class="search-form form-wrapper">
-							<form action="#!">
+							<form action="{{ path('app_programme') }}" method="get">
 
 								<ul>
 									<li>
 										<span class="title"></span>
+										<span class="title"></span>
 										<div class="form-item">
-											<input type="search" placeholder="Event name,location,etc">
+											<input style='width:500px;' type="search" name='search' value="{{ searchTerm }}" placeholder="Distination type,date,depart..">
 										</div>
 									</li>
-									<li>
-										<span class="title"></span>
-										<select id="event-category-select">
-											<option selected="">Conference</option>
-											<option value="1">Option 1</option>
-											<option value="2">Option 2</option>
-											<option value="3">Option 3</option>
-										</select>
-									</li>
+									
 									<li>
 										<button type="submit" class="submit-btn">Rechercher</button>
 									</li>
@@ -631,7 +623,7 @@ section{
 
 							<!-- Add to Calendar - start -->
 							<div title="Add to Calendar" class="addeventatc">
-								Add to Calendar
+								Ajouter au clandrier
 								<span class="start">06/18/2015 09:00 AM</span>
 								<span class="end">06/18/2015 11:00 AM</span>
 								<span class="timezone">Europe/Paris</span>
@@ -657,18 +649,7 @@ section{
 							</div>
 							<!-- map-wrapper - end -->
 
-							<!-- spacial-event-wrapper - start -->
-							<div class="spacial-event-wrapper text-center" style="background-image: url(assets/img/spacial-event-bg.jpg);">
-								<div class="overlay-black">
-									<p class="sub-title white-color mb-30">26 DECEMBER 2018</p>
-									<h2 class="title-large white-color mb-30">
-										AMSTERDAM
-										<strong class="yellow-color">PHP CONFERENCE</strong>
-									</h2>
-									<a href="#!" class="custom-btn">booking ticket</a>
-								</div>
-							</div>
-							<!-- spacial-event-wrapper - end -->
+							
 							
 						</div>
 					</div>
@@ -727,6 +708,7 @@ o #portfolio-flters li {
 						<div class="tab-content">
 							<div id="list-style" class="tab-pane fade">
 						{% for demande in demandes %}
+						
                             
 								<!-- event-item - start -->
 								<div class="event-list-item clearfix">
@@ -792,7 +774,7 @@ o #portfolio-flters li {
                                   
 								</div>
 								<!-- event-item - end -->
-
+                         
 								{% endfor %}
 								
 
@@ -926,8 +908,8 @@ o #portfolio-flters li {
 
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>Camping</h3>
-              <p>
+               <a href="{{path('app_main')}}"> <img  src="/assets/img/ma.png" alt"" class="logo" style="margin-top:-95px"></a>
+              <p style="margin-top:-30px;margin-left:15px;">
                Cité Taffala (Ibn Khaldoun)  <br>
                 4003 Sousse Tunisie<br><br>
                 <strong>Phone:</strong> +216 99 041 166<br>

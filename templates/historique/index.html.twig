@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>historique</title>
+  	<title>Campa Holic</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	 <link href="/assets/img/tent.jpg" rel="icon">
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
@@ -21,7 +22,7 @@
     <nav id="navbar" class="navbar nav-menu">
       <ul>
         <li><a href="{{path('app_main')}}" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Acceuil</span></a></li>
-        <li><a href="{{ path('app_userprofile') }}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Profile</span></a></li>
+        <li><a href="{{ path('app_userprofile', {'id': app.User.id}) }}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Profile</span></a></li>
         
         <li><a href="{{ path('app_img') }}" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Gallerie</span></a></li>
         <li><a href="{{ path('app_demande') }}" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Demandes</span></a></li>

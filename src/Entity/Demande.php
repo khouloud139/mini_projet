@@ -56,10 +56,14 @@ class Demande
     #[ORM\OneToMany(mappedBy: 'demande', targetEntity: Reservation::class)]
     private Collection $reservations;
 
+    #[ORM\OneToMany(mappedBy: 'damande', targetEntity: Commentaire::class)]
+    private Collection $commentaires;
+
 
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
+        $this->commentaires = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -247,7 +251,38 @@ class Demande
         return $this;
     }
     public function __toString(){
-      //  return $this->id;
+        return $this->id;
         
     }
+
+    /**
+     * @return Collection<int, Commentaire>
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): self
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires->add($commentaire);
+            $commentaire->setDamande($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): self
+    {
+        if ($this->commentaires->removeElement($commentaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getDamande() === $this) {
+                $commentaire->setDamande(null);
+            }
+        }
+
+        return $this;
+    }
+   
 }

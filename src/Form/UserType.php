@@ -19,18 +19,26 @@ class UserType extends AbstractType
     {
         $builder
         ->add('username', TextType::class, [
+            'attr'=>[
+                'class'=>'form-control',],
             'label' => 'Nom',
             'required' => true,
         ])
         ->add('userlastname', TextType::class, [
+            'attr'=>[
+                'class'=>'form-control',],
             'label' => 'Prénom',
             'required' => true,
         ])
         ->add('adresse', TextType::class, [
+            'attr'=>[
+                'class'=>'form-control',],
             'label' => 'Adresse',
             'required' => true,
         ])
         ->add('email', TextType::class, [
+            'attr'=>[
+                'class'=>'form-control',],
             'label' => 'Email',
             'required' => true,
         ])
@@ -38,17 +46,19 @@ class UserType extends AbstractType
             'required' => false,
         // ]) */
         ->add('password', PasswordType::class, [
+            'attr'=>[
+                'class'=>'form-control',],
             'label' => 'Mot de passe ',
             'required' => false,
         ])
         ->add('numtel', TextType::class, [
+            'attr'=>[
+                'class'=>'form-control',],
             'label' => 'Numéro du téléphone',
             'required' => true,
-        ])
+            ]);
         // Ajoutez les autres champs pour les coordonnées de l'utilisateur
-        ->add('submit', SubmitType::class, [
-            'label' => 'Modifier',
-        ]);
+        
     //     $form->get('password')->addModelTransformer(new PasswordTransformer($this->passwordEncoder));
 }
 

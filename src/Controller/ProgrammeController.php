@@ -10,8 +10,10 @@ use Symfony\Component\Security\Core\Security;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\User;
 use App\Entity\Demande;
+use App\Entity\Commentaire;
 use App\Entity\Reservation;
 use App\Form\ReservationType;
+use App\Form\CommentType;
 
 class ProgrammeController extends AbstractController
 {
@@ -25,12 +27,30 @@ class ProgrammeController extends AbstractController
  
  //$photoRepository = $entityManager->getRepository(Demande::class);
  //$demandes = $photoRepository->findAll();
+ 
+ $searchTerm = $request->query->get('search');
+    
  $queryBuilder = $entityManager->createQueryBuilder();
- $queryBuilder
-     ->select('d')
-     ->from(Demande::class, 'd')
-     ->where('d.statut = :statut')
-     ->setParameter('statut', 'Accepté');
+ $queryBuilder->select('p')
+          ->from(Demande::class, 'p')
+          ->where('p.statut = :statut')
+          ->setParameter('statut', 'Accepté');
+          
+
+if ($searchTerm) {
+    
+ $queryBuilder->andWhere(
+                    $queryBuilder->expr()->orX(
+                        $queryBuilder->expr()->like('p.Distination', ':searchTerm'),
+                        $queryBuilder->expr()->like('p.lieudepart', ':searchTerm'),
+                        $queryBuilder->expr()->like('p.datesortie', ':searchTerm'),
+                        $queryBuilder->expr()->like('p.type', ':searchTerm'),
+                        $queryBuilder->expr()->like('p.prix', ':searchTerm'),
+                    )
+                )
+              ->setParameter('searchTerm',  $searchTerm );
+
+}
 
  $demandes = $queryBuilder->getQuery()->getResult();
 
@@ -65,6 +85,7 @@ class ProgrammeController extends AbstractController
 
         return $this->render('programme/index.html.twig', [
             'demandes' => $demandeData,
+            'searchTerm' => $searchTerm,
         ]);
     }
 
@@ -131,11 +152,53 @@ class ProgrammeController extends AbstractController
      ];
      
  }
+ $comment = new Commentaire();
+ $commentForm = $this->createForm(CommentType::class, $comment);
+
+ $commentForm->handleRequest($request);
+
+ if ($commentForm->isSubmitted() ) {
+    
+
+    $comment=$commentForm->getData();
+   
+     $comment->setDamande($demandes[0]);
+    
+     $entityManager->persist($comment);
+     $entityManager->flush();
+     return $this->redirectToRoute('programme_details',[
+        'id' => $demandes[0]->getId(),]);
+     }
+
+     $qb = $entityManager->createQueryBuilder();
+     $qb->select('c')
+              ->from(Commentaire::class, 'c')
+              ->where('c.etat = :etat')
+              ->setParameter('etat', 'approuvee');
+$commentaires = $qb->getQuery()->getResult();
+        // Initialise une liste vide pour stocker les commentaires spécifiques à un programme
+$programmeComments = [];
+
+// Récupère l'identifiant du programme spécifique à partir de la requête HTTP ou de toute autre source
+$programmeId = $demandes[0]->getId();
+
+
+// Parcours tous les commentaires pour trouver ceux qui sont spécifiques au programme
+foreach ($commentaires as $comment) {
+    if ($comment->getDamande()->getId() == $programmeId) {
+        $programmeComments[] = $comment;
+    }
+
+}
+
+       
 
         return $this->render('programme/detail.html.twig', [
             'demande' => $demandeData,
             'form' => $form->createView(),
+            'commentForm' => $commentForm->createView(),
             'reservation'=>$reservation,
+            'commentaires'=>$programmeComments,
         ]);
 
     }
@@ -212,9 +275,7 @@ class ProgrammeController extends AbstractController
     
     return $this->render('programme/confirmation.html.twig');
     }
-
-
-
+   
 
 }
 

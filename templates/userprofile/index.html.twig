@@ -6,27 +6,30 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Mon Compte</title>
+  <title>Campa holic</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('/assets/imd/icon.png') }}" rel="icon">
-  <link href="assets/img/icon.png" rel="apple-touch-icon">
+ <link href="/assets/img/tent.jpg" rel="icon">
+  <link href="/assets/img/icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor1/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor1/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor1/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor1/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor1/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor1/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+  <link href="/assets/vendor1/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor1/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor1/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor1/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/assets/vendor1/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/assets/vendor1/swiper/swiper-bundle.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- Template Main CSS File -->
-  <link href="assets/css/styleuser.css" rel="stylesheet">
+  <link href="/assets/css/styleuser.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: MyResume
@@ -50,7 +53,7 @@
     <nav id="navbar" class="navbar nav-menu">
       <ul>
         <li><a href="{{path('app_main')}}" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Acceuil</span></a></li>
-        <li><a href="{{ path('app_userprofile') }}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Profile</span></a></li>
+        <li><a href="{{ path('app_userprofile', {'id': app.User.id}) }}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Profile</span></a></li>
         
         <li><a href="{{ path('app_img') }}" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Gallerie</span></a></li>
         <li><a href="{{ path('app_demande') }}" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Demandes</span></a></li>
@@ -108,7 +111,8 @@
               </div>
             </div>
             <div >
-             <a href="{{ path('user_edit', {'id': app.user.id}) }}" class="mod">Modifier les coordonnées</a>
+            
+             <button type="button" class="mod1" data-toggle="modal" data-target="#myModal">Modifier Votre Profil</button>
             {# <button class="mod" > Modifier Votre Profile </button> #}
             </div>
           {# href={{path('user.update')}} #}
@@ -118,6 +122,57 @@
 
       </div>
     </section><!-- End About Section -->
+
+
+    <!-- modal start  -->
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+    
+      <!-- Modal content-->
+      <div class="modal-content" >
+        <div class="modal-header" style="background-color:#026b04;" >
+        <h4 class="modal-title" style="  text-align: center; margin-left:140px ; color:#fff;">Modifier le profil</h4>
+          <button type="button" class="close" data-dismiss="modal" style="color:#fff;">&times;</button>
+          
+        </div>
+        <div class="modal-body">
+		
+          {{ form_start(form) }}
+         
+								{{ form_row(form.username) }}
+							
+						
+								
+								{{ form_row(form.userlastname) }}
+							
+					
+								
+								{{ form_row(form.adresse) }}
+							
+								
+								{{ form_row(form.email) }}
+							
+						
+								
+								{{ form_row(form.password) }}
+						
+								
+								{{ form_row(form.numtel) }}
+							
+          
+		      <a href="{{path('app_userprofile', {'id': app.User.id}) }}"> <button type="submit" class="mod1" style="margin-left:385px; margin-top:20px;">Modifier</button></a>
+         
+          {{ form_end(form) }}
+	
+          
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+						<!-- modal End -->
+   
 
    
 
@@ -293,7 +348,7 @@
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <img src="/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                 <h3>Saul Goodman</h3>
                 <h4>Ceo &amp; Founder</h4>
                 <p>
@@ -306,7 +361,7 @@
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                <img src="/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                 <h3>Sara Wilsson</h3>
                 <h4>Designer</h4>
                 <p>
@@ -319,7 +374,7 @@
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                <img src="/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                 <h3>Jena Karlis</h3>
                 <h4>Store Owner</h4>
                 <p>
@@ -332,7 +387,7 @@
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                <img src="/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
                 <h3>Matt Brandon</h3>
                 <h4>Freelancer</h4>
                 <p>
@@ -345,7 +400,7 @@
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <img src="/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
                 <h3>John Larson</h3>
                 <h4>Entrepreneur</h4>
                 <p>
@@ -457,28 +512,30 @@
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+   
   <!-- Vendor JS Files -->
-  <script src="assets/vendor1/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor1/aos/aos.js"></script>
-  <script src="assets/vendor1/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor1/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor1/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor1/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor1/typed.js/typed.min.js"></script>
-  <script src="assets/vendor1/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor1/php-email-form/validate.js"></script>
+  <script src="/assets/vendor1/purecounter/purecounter_vanilla.js"></script>
+  <script src="/assets/vendor1/aos/aos.js"></script>
+  <script src="/assets/vendor1/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor1/glightbox/js/glightbox.min.js"></script>
+  <script src="/assets/vendor1/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/assets/vendor1/swiper/swiper-bundle.min.js"></script>
+  <script src="/assets/vendor1/typed.js/typed.min.js"></script>
+  <script src="/assets/vendor1/waypoints/noframework.waypoints.js"></script>
+  <script src="/assets/vendor1/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main3.js"></script>
+  <script src="/assets/js/main3.js"></script>
 
 </body>
 
 </html>
+<script >
+$(document).on("click","#cust_btn",function(){
+  
+  $("#myModal").modal("toggle");
+  
+})
+</script>
 
-{#
-{% block body %}
-<!--<div class="mb-3">
-            You are logged in as {{ app.user.email }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>!-->
-{% endblock %}#}
+

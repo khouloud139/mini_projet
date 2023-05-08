@@ -70,6 +70,8 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('photo', FileType::class, [
+                'attr'=>[
+                    'class'=>'form-control',],
                 'label' => 'Votre image de profil (Image file)',
 
                 // unmapped means that this field is not associated to any entity property

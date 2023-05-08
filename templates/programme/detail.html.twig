@@ -9,8 +9,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-		<title>Harmoni - Event Details</title>
-		<link rel="shortcut icon" href="/assets/images/favicon.png">
+		<title>Campa Holic</title>
+		 <link href="/assets/img/tent.jpg" rel="icon">
 
 		<!-- fraimwork - css include -->
 		<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
@@ -34,7 +34,7 @@
 		<!-- color switcher css include -->
 		<link rel="stylesheet" type="text/css" href="/assets/css/colors/style-switcher.css">
 		<link id="color_theme" rel="stylesheet" type="text/css" href="/assets/css/colors/default.css">
-         <link href="/assets/img/icon.png" rel="icon">
+         
   <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 <link href="/assets/css/font-face.css" rel="stylesheet" media="all">
     <link href="/assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -109,7 +109,7 @@
 		<header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Camping</a></h1>
+       <a href="{{path('app_main')}}"> <img style="margin-top:10px;" src="/assets/img/ma.png" alt"" class="logo"></a>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -120,7 +120,7 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Activités</a></li>
           <li><a class="nav-link scrollto " href="{{path('app_programme')}}">Liste de programme</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Conseils</a></li>
+          <li><a class="nav-link scrollto " href="{{path('app_conseils')}}">Conseils</a></li>
           {# <li><a class="nav-link scrollto" href="#team">Team</a></li> #}
           {# <li><a href="blog.html">Blog</a></li> #}
           
@@ -156,7 +156,7 @@
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="{{path('app_userprofile')}}">
+                                                    <a href="{{path('app_userprofile', {'id': app.User.id})}}">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
@@ -609,7 +609,7 @@
 
 		<!-- event-details-section - start
 		================================================== -->
-		<section id="event-details-section" class="event-details-section sec-ptb-100 clearfix">
+		<section id="event-details-section" class="event-details-section sec-ptb-100 clearfix" style="margin-left:350px">
 			<div class="container">
 				<div class="row">
 
@@ -727,7 +727,7 @@
 {% for demand in demande %}
 							<div class="section-title text-left mb-50">
 								<span class="line-style"></span>
-								<button type="button" " class="custom-btn" data-toggle="modal" data-target="#myModal" style="margin-left:300px;">Réserver Maintenant</button>
+								<button type="button" class="custom-btn" data-toggle="modal" data-target="#myModal" style="margin-left:300px;">Réserver Maintenant</button>
 								
 {% endfor %}
 							
@@ -739,12 +739,17 @@
 						<div class="reviewer-comment-wrapper mb-30 clearfix">
 
 							<div class="section-title text-left mb-50">
-								<h2 class="big-title">Event <strong>reviews</strong></h2>
+								<h2 class="big-title"><strong>AVIS</strong></h2>
 							</div>
-
+{% for comment in commentaires %}
 							<div class="comment-bar clearfix">
 								<div class="admin-image">
-									<img src="/assets/images/admin.png" alt="Image_not_found">
+								{% if (comment.name == app.user.username) and (comment.mail == app.user.email) %}
+									<img src="/uploads/personne/{{ app.user.userImage}}" alt="{{ app.user.username }}" >
+									{% else %}
+									<img src="/assets/img/vide.png" alt="" >
+									{% endif %}
+
 								</div>
 								<div class="comment-content">
 									<div class="admin-name mb-15">
@@ -757,58 +762,36 @@
 												<li class="rated"><i class="fas fa-star"></i></li>
 											</ul>
 										</div>
+										
 										<div class="name">
-											<a href="#!">john doe</a>
+											<a href="#!">{{comment.name}}</a>
 										</div>
 									</div>
 									<div class="comment-text">
 										<p class="mb-30">
-											Brilliant production.  Enjoyed this as it captured so many emotions and being Irish some bits resonated with Irish families, the craic, singing.  Fantastic acting and so many surprises.
+										{{comment.comment}}
 										</p>
+										
 
 										<div class="meta-wrapper">
-											<div class="btn-group-left float-left">
-												<span class="title"><i class="fas fa-heart"></i> Helpful?</span>
-												<ul>
-													<li><button type="button">Yes</button></li>
-													<li><button type="button">No</button></li>
-												</ul>
-											</div>
-											<div class="btn-group-right float-right">
-												<ul>
-													<li><button type="button"><i class="fas fa-reply-all"></i> Replay</button></li>
-													<li><button type="button"><i class="fas fa-share-square"></i> Share</button></li>
-												</ul>
-											</div>
+											
+											
 										</div>
 									</div>
+									
 								</div>
 							</div>
-
+{% endfor %}
 						</div>
 						<!-- reviewer-comment-wrapper - end -->
 
-						<div class="pagination ul-li clearfix mb-80">
-							<ul>
-								<li class="page-item prev-item">
-									<a class="page-link" href="#">Prev</a>
-								</li>
-								<li class="page-item"><a class="page-link" href="#">01</a></li>
-								<li class="page-item active"><a class="page-link" href="#">02</a></li>
-								<li class="page-item"><a class="page-link" href="#">03</a></li>
-								<li class="page-item"><a class="page-link" href="#">04</a></li>
-								<li class="page-item"><a class="page-link" href="#">05</a></li>
-								<li class="page-item next-item">
-									<a class="page-link" href="#">Next</a>
-								</li>
-							</ul>
-						</div>
+						
 
 						<!-- comment-form - start -->
 						<div class="comment-form clearfix">
 
 							<div class="section-title text-left mb-50">
-								<h2 class="big-title">write a <strong>comment</strong></h2>
+								<h2 class="big-title">Ecrire un <strong>commentaire</strong></h2>
 
 								<div class="rateing-star-wrapper">
 									<span class="rating-title float-left">Your Rating:</span>
@@ -816,7 +799,7 @@
 										<form action="#">
 
 											<div class="form-check clearfix">
-												<input type="checkbox">
+												<input name='rating[]'type="checkbox">
 											</div>
 											<div class="form-check clearfix">
 												<input type="checkbox">
@@ -838,13 +821,20 @@
 							</div>
 
 							<div class="form-wrapper">
-								<form action="https://jthemes.net/themes/html/harmony-event/contact.php">
+								{{form_start(commentForm)}}
 									<div class="row">
 
 										<!-- form-item - start -->
 										<div class="col-lg-4 col-md-6 col-sm-12">
 											<div class="form-item mb-30">
-												<input type="text" name="name" placeholder="Your Name" required>
+											{% if app.user %}
+                                             {% set username = app.user.username  %}
+											   
+    
+												{{form_widget(commentForm.name ,{ 'value': username }) }}
+												{% else %}
+                                                  {{form_widget(commentForm.name) }} 
+                                                   {% endif %}
 											</div>
 										</div>
 										<!-- form-item - end -->
@@ -852,7 +842,13 @@
 										<!-- form-item - start -->
 										<div class="col-lg-4 col-md-6 col-sm-12">
 											<div class="form-item mb-30">
-												<input type="email" name="email" placeholder="Your Email Address" required>
+												{% if app.user %}
+                                             {% set email = app.user.email %} 
+    
+												{{form_widget(commentForm.mail ,{ 'value': email }) }}
+												{% else %}
+                                                  {{form_widget(commentForm.mail) }} 
+                                                   {% endif %}
 											</div>
 										</div>
 										<!-- form-item - end -->
@@ -860,7 +856,13 @@
 										<!-- form-item - start -->
 										<div class="col-lg-4 col-md-12 col-sm-12">
 											<div class="form-item mb-30">
-												<input type="tel" name="phone" placeholder="Your Phone" required>
+												{% if app.user %}
+                                             {% set tel = app.user.numtel %} 
+    
+												{{form_widget(commentForm.phone ,{ 'value': tel }) }}
+												{% else %}
+                                                  {{form_widget(commentForm.phone) }} 
+                                                   {% endif %}
 											</div>
 										</div>
 										<!-- form-item - end -->
@@ -868,14 +870,14 @@
 										<!-- form-item - start -->
 										<div class="col-lg-12 col-md-12 col-sm-12">
 											<div class="mb-30">
-												<textarea name="message" placeholder="Your Comment" required></textarea>
+												{{form_widget(commentForm.comment)}}
 											</div>
-											<button type="submit" class="custom-btn">SUBMIT NOW</button>
+											<button type="submit" class="custom-btn">Envoyer</button>
 										</div>
 										<!-- form-item - end -->
 
 									</div>
-								</form>
+								{{form_start(commentForm)}}
 							</div>
 
 						</div>
@@ -884,62 +886,7 @@
 					</div>
 					<!-- col - event-details - end -->
 
-					<!-- sidebar-section - start -->
-					<div class="col-lg-4 col-md-12 col-sm-12">
-						<div class="sidebar-section">
-
-							<!-- Add to Calendar - start -->
-							<div title="Add to Calendar" class="addeventatc">
-								Add to Calendar
-								<span class="start">06/18/2015 09:00 AM</span>
-								<span class="end">06/18/2015 11:00 AM</span>
-								<span class="timezone">Europe/Paris</span>
-								<span class="title">Summary of the event</span>
-								<span class="description">Description of the event</span>
-								<span class="location">Location of the event</span>
-								<span class="organizer">Organizer</span>
-								<span class="organizer_email">Organizer e-mail</span>
-								<span class="all_day_event">false</span>
-								<span class="date_format">MM/DD/YYYY</span>
-							</div>
-							<!-- Add to Calendar - end -->
-
-							<!-- map-wrapper - start -->
-							<div class="map-wrapper mb-30">
-
-								<!-- section-title - start -->
-								<div class="section-title mb-30">
-									<h2 class="big-title">event <strong>location</strong></h2>
-								</div>
-								<!-- section-title - end -->
-
-								<div id="google-map">
-									<div id="googleMaps" class="google-map-container"></div>
-								</div>
-
-							</div>
-							<!-- map-wrapper - end -->
-
-							
-
-							
-
-							<!-- spacial-event-wrapper - start -->
-							<div class="spacial-event-wrapper text-center" style="background-image: url(/assets/images/spacial-event-bg.jpg);">
-								<div class="overlay-black">
-									<p class="sub-title white-color mb-30">26 DECEMBER 2018</p>
-									<h2 class="title-large white-color mb-30">
-										AMSTERDAM
-										<strong class="yellow-color">PHP CONFERENCE</strong>
-									</h2>
-									<a href="#!" class="custom-btn">booking ticket</a>
-								</div>
-							</div>
-							<!-- spacial-event-wrapper - end -->
-							
-						</div>
-					</div>
-					<!-- sidebar-section - end -->
+					
 					
 				</div>
 			</div>
@@ -960,8 +907,8 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>Camping</h3>
-              <p>
+               <a href="{{path('app_main')}}"> <img  src="/assets/img/ma.png" alt"" class="logo" style="margin-top:-95px"></a>
+              <p style="margin-top:-30px;margin-left:15px;">
                Cité Taffala (Ibn Khaldoun)  <br>
                 4003 Sousse Tunisie<br><br>
                 <strong>Phone:</strong> +216 99 041 166<br>

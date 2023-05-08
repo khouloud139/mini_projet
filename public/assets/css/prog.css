@@ -5719,7 +5719,8 @@ button {
       .event-search-section .search-form ul li .submit-btn {
         width: 100%;
         height: 50px;
-        margin-top: 37px;
+        margin-top: 30px;
+        margin-left: 230px;
         font-weight: 700;
         padding: 0px 20px;
         text-align: center;
@@ -6868,16 +6869,16 @@ button {
         border-bottom: 1px solid #ffffff; }
         .faq-section .faq-content-wrapper .faq-accordion .card .card-header .btn:not(.collapsed):after {
           content: '\f0ab';
-          color: #ffbe30; }
+          color: #90d15b; }
   .faq-section .faq-content-wrapper .faq-accordion .card .card-body {
     padding: 30px;
     color: #333333;
     background-color: #f7f7f7;
-    border-left: 3px solid #ffbe30; }
+    border-left: 3px solid #90d15b; }
     .faq-section .faq-content-wrapper .faq-accordion .card .card-body > h3 {
       font-weight: 700;
       margin-bottom: 15px;
-      color: #ffbe30;
+      color:  #90d15b;
       font-size: 18px; }
 
 /* faq section - end

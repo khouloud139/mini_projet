@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Camping</title>
+  <title>Campa Holic</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="/assets/img/icon.png" rel="icon">
+  <link href="/assets/img/tent.jpg" rel="icon">
   <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 <link href="/assets/css/font-face.css" rel="stylesheet" media="all">
     <link href="/assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -54,7 +54,7 @@
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Camping</a></h1>
+     <a href="{{path('app_main')}}"> <img style="margin-top:10px;" src="/assets/img/ma.png" alt"" class="logo"></a>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -65,7 +65,7 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Activités</a></li>
           <li><a class="nav-link scrollto " href="{{path('app_programme')}}">Liste de programme</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Conseils</a></li>
+          <li><a class="nav-link scrollto " href="{{path('app_conseils')}}">Conseils</a></li>
           {# <li><a class="nav-link scrollto" href="#team">Team</a></li> #}
           {# <li><a href="blog.html">Blog</a></li> #}
           
@@ -101,7 +101,7 @@
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="{{path('app_userprofile')}}">
+                                                    <a href="{{path('app_userprofile', {'id': app.User.id})}}">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
@@ -845,9 +845,9 @@ Les activités de plein air son.</p>
         <div class="row">
 
           <div class="col-lg-3 col-md-6">
-            <div class="footer-info">
-              <h3>Camping</h3>
-              <p>
+            <div >
+              <a href="{{path('app_main')}}"> <img  src="/assets/img/ma.png" alt"" class="logo" style="margin-top:-95px"></a>
+              <p style="margin-top:-30px;margin-left:15px;">
                Cité Taffala (Ibn Khaldoun)  <br>
                 4003 Sousse Tunisie<br><br>
                 <strong>Phone:</strong> +216 99 041 166<br>

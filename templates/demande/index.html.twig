@@ -2,8 +2,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>demande</title>
+		<title>Campa Holic</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		 <link href="/assets/img/tent.jpg" rel="icon">
 
 		<!-- MATERIAL DESIGN ICONIC FONT -->
 		<link rel="stylesheet" href="/assets/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
@@ -21,7 +22,7 @@
     <nav id="navbar" class="navbar nav-menu">
       <ul>
         <li><a href="{{path('app_main')}}" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Acceuil</span></a></li>
-        <li><a href="{{ path('app_userprofile') }}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Profile</span></a></li>
+        <li><a href="{{ path('app_userprofile', {'id': app.User.id}) }}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Profile</span></a></li>
         
         <li><a href="{{ path('app_img') }}" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Gallerie</span></a></li>
         <li><a href="{{ path('app_demande') }}" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Demandes</span></a></li>
@@ -86,13 +87,46 @@
 							</div>
 						</div>
 					</div>
+					<div class="form-group">
+						<div class="form-wrapper">
+							
+							<div >
+								
+								{{ form_row(demandeForm.type) }}
+							</div>
+						</div>
+						<div class="form-wrapper">
+							
+							<div class="form-holder">
+								
+								{{ form_row(demandeForm.photo) }}
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-wrapper">
+							
+							<div >
+								
+								{{ form_row(demandeForm.titre) }}
+							</div>
+						</div>
+						<div class="form-wrapper">
+							
+							<div class="form-holder">
+								
+								{{ form_row(demandeForm.discription) }}
+							</div>
+						</div>
+					</div>
+					
 					<div class="form-end">
 						<div class="form-wrapper" >
                         
 							
-							{{ form_row(demandeForm.type) }}
+							
 						</div>
-						<div class="button-holder" >
+						<div class="button-holder" style="margin-left:60px;">
 							<button type="submit" class="btn">Envoyer</button>
 						</div>
 						
