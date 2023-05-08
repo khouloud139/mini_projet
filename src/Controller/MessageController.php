@@ -39,7 +39,7 @@ class MessageController extends AbstractController
 
         $this->addFlash('success', 'Your message has been sent. Thank you!');
         // return $this->redirectToRoute('app_main');
-         return $this->render('main/index.html.twig');
+         return $this->redirectToRoute('app_main');
         // return $this->redirectToRoute('app_programme');
     } 
         

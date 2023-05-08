@@ -35,11 +35,11 @@ class ProgrammeController extends AbstractController
  $searchTerm = $request->query->get('search');
     
  $queryBuilder = $entityManager->createQueryBuilder();
-<<<<<<< HEAD
+
  $queryBuilder->select('p')
           ->from(Demande::class, 'p')
           ->where('p.statut = :statut')
-          ->setParameter('statut', 'Accepté');
+          ->setParameter('statut', 'approuvee');
           
 
 if ($searchTerm) {
@@ -56,13 +56,13 @@ if ($searchTerm) {
               ->setParameter('searchTerm',  $searchTerm );
 
 }
-=======
+/*
  $queryBuilder
      ->select('d')
      ->from(Demande::class, 'd')
      ->where('d.statut = :statut')
      ->setParameter('statut', 'approuvee');
->>>>>>> 6f933102c4b3d97c58afd6dc52e3ab0488395814
+*/
 
  $demandes = $queryBuilder->getQuery()->getResult();
  $demandeData = [];

@@ -4,12 +4,11 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use App\Entity\Demande;
-<<<<<<< HEAD
 use App\Entity\Commentaire;
-=======
+
 use App\Entity\Message;
 use App\Entity\Reservation;
->>>>>>> 6f933102c4b3d97c58afd6dc52e3ab0488395814
+
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -56,11 +55,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
          yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
          yield MenuItem::linkToCrud('Demandes', 'fa fa-bell', Demande::class);
-<<<<<<< HEAD
+
          yield MenuItem::linkToCrud('Commentaires', 'fa fa-comment', Commentaire::class);
-=======
+
          yield MenuItem::linkToCrud('Messages', 'fa fa-message', Message::class);
          yield MenuItem::linkToCrud('Reservation', 'fa fa-message', Reservation::class);
->>>>>>> 6f933102c4b3d97c58afd6dc52e3ab0488395814
+
     }
 }
