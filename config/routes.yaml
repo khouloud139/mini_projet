@@ -11,6 +11,7 @@ programme_reservation:
 kernel:
     resource: ../src/Kernel.php
     type: annotation
+
 user_edit:
     path: '/user/edit/{id}'
     controller: App\Controller\UserprofileController::edit

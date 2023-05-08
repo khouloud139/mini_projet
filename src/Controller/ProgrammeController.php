@@ -21,7 +21,11 @@ class ProgrammeController extends AbstractController
     public function index(Request $request,EntityManagerInterface $entityManager): Response
     {
 
+// <<<<<<< HEAD
+ // Récupérer l'ID de l'utilisateur connecté
+//  $user_id = $this->getUser()->getId();
  
+// >>>>>>> b5444ff570f56762582f4197f2c3f2f5c89db649
 
  
  
@@ -31,6 +35,7 @@ class ProgrammeController extends AbstractController
  $searchTerm = $request->query->get('search');
     
  $queryBuilder = $entityManager->createQueryBuilder();
+<<<<<<< HEAD
  $queryBuilder->select('p')
           ->from(Demande::class, 'p')
           ->where('p.statut = :statut')
@@ -51,13 +56,15 @@ if ($searchTerm) {
               ->setParameter('searchTerm',  $searchTerm );
 
 }
+=======
+ $queryBuilder
+     ->select('d')
+     ->from(Demande::class, 'd')
+     ->where('d.statut = :statut')
+     ->setParameter('statut', 'approuvee');
+>>>>>>> 6f933102c4b3d97c58afd6dc52e3ab0488395814
 
  $demandes = $queryBuilder->getQuery()->getResult();
-
-
- 
- 
-
  $demandeData = [];
  foreach ($demandes as $demande) {
      $demandeData[] = [
@@ -65,7 +72,7 @@ if ($searchTerm) {
         'id' => $demande->getId(),
         'Dis' => $demande->getDistination(),
         'depart' => $demande->getLieuDepart(),
-        'date' => $demande->getDateSortie()->format('d/m/Y'),
+        'date' => $demande->getDateSortie()->format('y-m-d'),
         'heure' => $demande->getHeureDepart()->format('H:m'),
         'type' => $demande->getType(),
         'nombre' => $demande->getNombrePlaces(),
